@@ -23,12 +23,13 @@ def gameSim(p):
 
 
 def checkTieBreakWinner(p1TBScore, p2TBScore):
-        if (p1TBScore == 7 or p1TBScore == 8) and (p1TBScore - p2TBScore) >= 2:
+        if (p1TBScore >= 7) and (p1TBScore - p2TBScore) >= 2:
             return 1
-        elif (p2TBScore == 7 or p2TBScore == 8) and (p2TBScore - p1TBScore) >= 2:
+        if (p2TBScore >= 7) and (p2TBScore - p1TBScore) >= 2:
             return 0
         else:
-            return False
+            return -1
+
 
 def tieBreakerSim(p1,p2, lastServer):
     p1Score = 0
@@ -54,7 +55,7 @@ def tieBreakerSim(p1,p2, lastServer):
         if currentServer == 1:
             for i in range(2):
                 print(p1Score,p2Score)
-                if checkTieBreakWinner(p1Score, p2Score) == False:
+                if (checkTieBreakWinner(p1Score, p2Score) != 0) and (checkTieBreakWinner(p1Score, p2Score) != 1):
                     if random.random() < p1:
                         p1Score += 1
                         currentServer = 2
@@ -66,7 +67,7 @@ def tieBreakerSim(p1,p2, lastServer):
         if currentServer == 2:
             for i in range(2):
                 print(p1Score,p2Score)
-                if checkTieBreakWinner(p1Score, p2Score) == False:
+                if (checkTieBreakWinner(p1Score, p2Score)) != 0 and (checkTieBreakWinner(p1Score, p2Score) != 1):
                     if random.random() < p2:
                         p2Score += 1
                         currentServer = 1
@@ -75,12 +76,15 @@ def tieBreakerSim(p1,p2, lastServer):
                         currentServer = 1
                 else:
                     return checkTieBreakWinner(p1Score,p2Score)
-        while (p1Score + p2Score) > 14:
-            if checkTieBreakWinner == False:
-                p1Score -= 1
-                p2Score -= 1
-            else:
-                break
+
+def checkSetWinner(p1SetScore,p2SetScore):
+        if (p1SetScore >= 6) and (p1SetScore - p2SetScore) >=2:
+            return 1
+        
+        if (p2SetScore >= 6) and (p2SetScore - p1SetScore) >=2:
+            return 0
+        else:
+            return -1
 
 def setSim(p1,p2,firstServer):
     p1Games = 0
@@ -88,46 +92,48 @@ def setSim(p1,p2,firstServer):
     currentServer = firstServer
     while True:
 
-        if(currentServer == 1):
-            print(p1Games, p2Games)
-            gameWinner = gameSim(p1)
-            if(gameWinner == 1):
-                p1Games += 1
-                currentServer = 2
-            else:
-                p2Games += 1
-                currentServer = 2
-          
-        if(currentServer == 2):
-            print(p1Games, p2Games)
-            gameWinner = gameSim(p2)
-            if(gameWinner == 0):
-                p2Games += 1
-                currentServer = 1
-            else:
-                p1Games += 1
-                currentServer = 1
-        
-        if (p1Games == 6 or p1Games == 7) and (p1Games - p2Games) >=2:
-            return 1
-        
-        if (p2Games == 6 or p1Games == 7) and (p2Games - p1Games) >=2:
-            return 0
-        
         if (p1Games == 6 and p2Games == 6):
-            tieBreakResult = tieBreakerSim(p1,p2,firstServer)
-            return tieBreakResult
-        ## add tiebreaker 
+            return tieBreakerSim(p1,p2,currentServer) # need to make sure the tiebreaker starts with the correct server
+            
 
-        if (p1Games + p2Games) > 12:
-            p1Games -= 1
-            p2Games -= 1
+        if(currentServer == 1):
+            if (checkSetWinner(p1Games, p2Games)) != 0 and (checkSetWinner(p1Games, p2Games) != 1):
+                gameWinner = gameSim(p1)
+                if(gameWinner == 1):
+                    p1Games += 1
+                    currentServer = 2
+                else:
+                    p2Games += 1
+                    currentServer = 2
+            else:
+                return checkSetWinner(p1Games,p2Games)
+        
+        print(p1Games, p2Games)
+        
+        if (checkSetWinner(p1Games, p2Games)) != 0 and (checkSetWinner(p1Games, p2Games) != 1):
+            if(currentServer == 2):
+                gameWinner = gameSim(p2)
+                if(gameWinner == 0):
+                    p2Games += 1
+                    currentServer = 1
+                else:
+                    p1Games += 1
+                    currentServer = 1
+        else:
+            return checkSetWinner(p1Games, p2Games)
+        
+        print(p1Games, p2Games)
+        
+    
+
+        
+
 
 
 
         
-            
-print(tieBreakerSim(.5,.5,1))          
+random.seed(316)      
+print(setSim(.5,.5,1))          
 
 
 """
