@@ -2,7 +2,9 @@ import random
 import numpy as np
 from numpy import ndarray
 import time
-def gameSim(p):
+import pandas as pd
+def gameSim(p): #consider making the model slightly more complicated by adding in 1st and second serves,
+                #I have the stats on these so its very easy to do and to predict each of the stats. OVer the match, they will more or less even out
     player1Score = 0
     player2Score = 0
     pointCount = 0
@@ -20,7 +22,6 @@ def gameSim(p):
         if (player1Score + player2Score) > 6:
                 player1Score -= 1
                 player2Score -= 1
-
 
 def checkTieBreakWinner(p1TBScore, p2TBScore):
         if (p1TBScore >= 7) and (p1TBScore - p2TBScore) >= 2:
@@ -212,12 +213,3 @@ def matchSim(p1,p2,firstServer,setsToWin, bestOf):
             return checkMatchWinner(p1Sets,p2Sets, setsToWin)
         if p1Sets == setsToWin - 1 and p2Sets == setsToWin - 1:
             return finalSetSim(p1,p2,currentServer)
-
-
-print(matchSim(.8,.8,1,2,3))
-
-
-
-
-
-
