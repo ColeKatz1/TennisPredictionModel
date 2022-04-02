@@ -10,7 +10,7 @@ Next, there is the Tennis_Prediction.py file which then simulates the matches n 
 
 Results:
 
-The model was used to simulate the results of the recent Indian Wells tournament of 2022. The model acheived an accuracy of approximately 70% for this tournament for picking the winner of each match. 
+The model was used to simulate the results starting from the round of 64 of the recent Indian Wells tournament of 2022. The model acheived an accuracy of approximately 70% for this tournament for picking the winner of each match. 
 
 Future of the project:
 
