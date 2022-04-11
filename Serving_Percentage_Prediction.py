@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, Comment
 import pandas as pd
 from selenium import webdriver
 
-with open("C:/Users/colek/OneDrive/Desktop/Tennis_Prediction_Model/ATP.html") as fp:
+with open("C:/Users/colek/OneDrive/Desktop/ATP_Serve_Return_Stats/ATP_Serve_4_7_22.html") as fp:
     soup = BeautifulSoup(fp, 'html.parser')
 
 tr = soup.findAll('tr', class_ = "stats-listing-row")
@@ -47,7 +47,7 @@ data['2nd_Serve_Pct'] = 100 - data['1st_Serve_Pct']
 data['Pct_Won_On_Serve'] = (data['1st_Serve_Pct'] / 100 * data['1st_Serve_Won_Pct']) + (data['2nd_Serve_Pct'] / 100 * data['2nd_Serve_Won_Pct'])
 
 
-with open("C:/Users/colek/OneDrive/Desktop/Tennis_Prediction_Model/Return_ATP.html") as fp:
+with open("C:/Users/colek/OneDrive/Desktop/ATP_Serve_Return_Stats/ATP_Return_4_7_22.html") as fp:
     soupReturn = BeautifulSoup(fp, 'html.parser')
 
 trReturn = soupReturn.findAll('tr', class_ = "stats-listing-row")
@@ -100,9 +100,27 @@ def calculateServePct(playerName1, playerName2):
     #p1 = player1FirstServeProp.values
     p1 = player1FirstServeProp.values*(player1FirstServeWon.values-(player2FirstServeReturnPct.values)) + player1SecondServeProp.values*(player1SecondServeWon.values-(player2SecondServeReturnPct.values)) + 40
     p2 = player2FirstServeProp.values*(player2FirstServeWon.values-player1FirstServeReturnPct.values) + player2SecondServeProp.values*(player2SecondServeWon.values-player1SecondServeReturnPct.values) + 40
-    print(playerName1, p1) #need to figure out how to convert these numbers into serve percentage, could add it to the baseline of 50 but that overestimates it consistently
-    print(playerName2, p2)
+
+    #print(playerName1, p1) 
+    #print(playerName2, p2)
+    return(p1,p2)
     #print(player1SecondServeProp)
 
-calculateServePct("Carlos Alcaraz", "Miomir Kecmanovic") 
+#calculateServePct("Jaume Munar", "Tallon Griekspoor") 
 
+
+
+#eloDF = pd.read_csv("C:/Users/colek/OneDrive/Desktop/Tennis_Prediction_Model/Elo_Ratings.csv")
+
+#eloDF = eloDF.dropna(axis=1)
+#eloDF = eloDF[['Player','Elo']]
+#df = pd.merge(dfReturn, data, on='Player')
+
+#eloDF['Player'] = eloDF['Player'].astype(str)
+#eloDF['Elo'] = eloDF['Elo'].astype(int)
+#df['Player'] = df['Player'].astype(str)
+
+#df = pd.merge(df, eloDF, on='Player')
+
+#print(df)
+#print(eloDF)
