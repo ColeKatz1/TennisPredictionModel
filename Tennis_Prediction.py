@@ -341,6 +341,8 @@ def setSimNTimes(p1,p2,firstServer,n):
 
 
 
+b = calculateServePct("Hubert Hurkacz", "Hugo Dellien") 
+print(b)
 print(matchSimNoTiebreakNTimes(b[0]/100,b[1]/100,1,2,3,100000))
 #print(p1TotGamesWon/100000)
 #print(p2TotGamesWon/100000)
