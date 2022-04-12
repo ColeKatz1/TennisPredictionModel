@@ -10,8 +10,16 @@ Next, there is the Tennis_Prediction.py file which then simulates the matches n 
 
 Results:
 
-The model was used to simulate the results starting from the round of 64 of the recent Indian Wells tournament of 2022. The model acheived an accuracy of approximately 70% for picking the winner of each match. 
+The model is currently being used to simulate the Monte Carlo Masters tournament and through the first round has an accuracy of 91.67%.
+
+The model was used to simulate the results starting from the round of 32 of the recent Indian Wells tournament of 2022. The model acheived an accuracy of approximately 70% for picking the winner of each match. 
+
 
 Future of the project:
 
-In terms of ways in which the model can be improved, more statistics about each player will be added such as the ELO of each player coming into the match. Models using ELO as a basis for prediction have generally been the most successful in tennis prediction. In order to incorporate ELO for prediction, a machine learning model will need to be created. Variables that will likely be used are: Surface (Clay, Grass, etc.), ELO, SimProb (Probability of each player winning the match according to the simulations of Tennis_Prediction.py. Unfortunately, due to a lack of archived data, I will be creating a new dataset in order to acheive this over the next few months. The columns for this dataset will include the variables used in prediction (Surface, ELO, SimProb) in addition to PlayerName and Winner (who won). A nueral network and logistic regression approach will be taken for this. The dataset will include matches starting from Indian Wells 2022 and extend into future tournaments.
+In terms of ways in which the model can be improved, more statistics about each player will be added such as the ELO of each player coming into the match. Models using ELO as a basis for prediction have generally been the most successful in tennis prediction (the most successful models are about 70% accurate). In order to incorporate ELO for prediction, a machine learning model will need to be created. Variables that will likely be used are: Surface (Clay, Grass, etc.), ELO, SimProb (Probability of each player winning the match according to the simulations of Tennis_Prediction.py. Unfortunately, due to a lack of archived data, I will be creating a new dataset in order to acheive this over the next few months. The columns for this dataset will include the variables used in prediction (Surface, ELO, SimProb) in addition to PlayerName and Winner (who won). A nueral network and logistic regression approach will be taken for this. The dataset will include matches starting from Indian Wells 2022 and extend into future tournaments.
+
+Below is a screenshot of the new data being collected using the model which will be used for machine learning in the future for better prediction.
+
+![Screenshot 2022-04-11 223026](https://user-images.githubusercontent.com/84477747/162887335-d57c8ccd-181e-435d-ad0d-d7dfcaa123df.jpg)
+
