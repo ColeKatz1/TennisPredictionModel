@@ -11,7 +11,7 @@ Next, there is the Tennis_Prediction.py file which then simulates the matches n 
 
 Results:
 
-The model is currently being used to simulate the Monte Carlo Masters tournament and through the first round has an accuracy of 91.67%.
+The model is currently being used to simulate the Monte Carlo Masters tournament and through the first three rounds has an accuracy of 71%.
 
 The model was used to simulate the results starting from the round of 32 of the recent Indian Wells tournament of 2022. The model acheived an accuracy of approximately 70% for picking the winner of each match. 
 
