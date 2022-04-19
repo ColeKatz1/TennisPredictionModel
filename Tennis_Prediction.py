@@ -342,24 +342,43 @@ def setSimNTimes(p1,p2,firstServer,n):
             totSets += 1
     return p1Wins/totSets
 
-# (incomplete) this method will simulate all matches in a day, and put the outputs from this simulation into an excel spreadsheet that will be used for future prediction
+#this method simulates all matches in a day and puts the results into a dataframe
 def simAllMatches(date,round):
     #date = "4_10_22",
-    player1 = "Dusan Lajovic"
-    player2 = "Filip Krajinovic"
-    player3 = "Martin Fucsovics"
-    player4 = "Lloyd Harris"
-    player5 = "Alejandro Davidovich Fokina"
-    player6 = "Marcos Giron"
-    player7 = "Fabio Fognini"
-    player8 = "Arthur Rinderknech"
-    match1 = calculateServePct(player1, player2) 
-    match2 = calculateServePct(player3, player4) 
-    match3 = calculateServePct(player5, player6)
-    match4 = calculateServePct(player7,player8) 
-    print(matchSimTiebreakNTimes(match1[0]/100,match1[1]/100,1,2,3,10))
+    est_p1_list = []
+    est_p2_list = []
+    player1_list = []
+    player2_list = []
+    allPlayer1 = ["Federico Delbonis","Andrey Rublev","Felix Auger-Aliassime","Emil Ruusuvuori","Marton Fucsovics","Casper Ruud","Taylor Fritz","David Goffin","Hubert Hurkacz","Lorenzo Sonego","Albert Ramos-Vinolas","Sebastian Korda"]
+    allPlayer2 = ["Alexander Zverev","Alex de Minaur","Lorenzo Musetti","Jannik Sinner","Diego Schwartzman","Holger Rune","Marin Cilic","Daniel Evans","Pedro Martinez","Laslo Djere","Cameron Norrie","Carlos Alcaraz"]
 
-simAllMatches("4_10_22","64")
+    for i in range(len(allPlayer1)):
+
+        servePct = calculateServePct(allPlayer1[i],allPlayer2[i])
+        est_p1 = servePct[0]
+        est_p2 = servePct[1]
+        est_p1_list.append(est_p1)
+        est_p2_list.append(est_p2)
+        player1_list.append(allPlayer1[i])
+        player2_list.append(allPlayer2[i])
+        
+        dfList = {'Player1' : player1_list, 'Player2' : player2_list, 'est_p1' : est_p1_list, 'est_p2' : est_p2_list}
+        df = pd.DataFrame(dfList)
+
+        df['est_p1'] = df['est_p1'].str.get(0)
+        df['est_p2'] = df['est_p2'].str.get(0)
+    
+    return df
+    
+    
+
+
+print(simAllMatches("4_11_22","2"))
+#a = calculateServePct("Andrey Rublev", "Jannik Sinner")
+#print(a)
+#print(matchSimTiebreakNTimes(a[0]/100,a[1]/100,1,2,3,100000))
+
+
 #print(p1TotGamesWon/100000)
 #print(p2TotGamesWon/100000)
 #print(totGamesPlayed/100000)
