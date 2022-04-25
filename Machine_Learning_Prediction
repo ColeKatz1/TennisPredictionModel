@@ -1,0 +1,23 @@
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+import pandas
+import numpy
+from sklearn.tree import DecisionTreeClassifier
+
+
+df = pandas.read_csv("C:/Users/colek/OneDrive/Desktop/ATP_Serve_Return_Stats/Tennis_Dataset.csv")
+
+df['Elo_1_Combined'] = (df['elo_1'] + df['1_surface_elo'])/2
+df['Elo_2_Combined'] = (df['elo_2'] + df['2_surface_elo'])/2
+
+df['Elo_Combined_Diff'] = df['Elo_1_Combined']  - df['Elo_2_Combined']
+
+xAndY = df[['Elo_Combined_Diff','WinOrLoss']]
+xAndY = xAndY.dropna(axis=0)
+x = xAndY['Elo_Combined_Diff'].values.reshape(-1,1)
+y = xAndY['WinOrLoss']
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.4)
+logistic = LogisticRegression()
+log_model = logistic.fit(x_train, y_train)
+print('Decision Tree:', log_model.score(x_test, y_test))
