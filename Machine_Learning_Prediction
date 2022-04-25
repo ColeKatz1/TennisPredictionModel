@@ -20,4 +20,4 @@ y = xAndY['WinOrLoss']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.4)
 logistic = LogisticRegression()
 log_model = logistic.fit(x_train, y_train)
-print('Decision Tree:', log_model.score(x_test, y_test))
+print('Logistic Regression:', log_model.score(x_test, y_test))
