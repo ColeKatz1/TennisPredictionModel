@@ -9,6 +9,9 @@ First, there is the Serving_Perctange.py file which takes data from https://www.
 
 Next, there is the Markov_Chain_Simulation.py file which then simulates the matches n number of times. This program produces the probability that each player will win the match. It also produces the probability of each player winning a single game within the match in addition to the total estimated number of games played in the match. 
 
+Finally, I've just added the Machine_Learning_Prediction.py file which takes the dataset I have been creating using ongoing tennis tournaments to predict the winner using machine learning. Currently, it is using a decision tree; however, this is likely to change. Additionally, although there are only 91 possible matches for it to be trained and tested on, it has acheived an accuracy of approximately 70% only using the elo's of each player in general and on the given surface. As more games are played and simulated, the gameSim variable will also be added to the model for prediction. 
+
+
 Results:
 
 The model is currently being used to simulate the Monte Carlo Masters tournament and through the first three rounds has an accuracy of 71%.
@@ -23,4 +26,8 @@ In terms of ways in which the model can be improved, more statistics about each 
 Below is a screenshot of the new data being collected using the model which will be used for machine learning in the future for better prediction. (Elo data still needs to be filled out)
 
 ![Screenshot 2022-04-11 223026](https://user-images.githubusercontent.com/84477747/162887335-d57c8ccd-181e-435d-ad0d-d7dfcaa123df.jpg)
+
+I am also thinking of including new variables. For example, I may add a variable "unexpectedGamesWonInTourney" which will give the difference between total games won and expected games won in a tournament. This will give an idea of how "hot" a player is in a tournament. It will help the model account for players that are on a streak, although on paper they may be slightly worse than another. Maybe this variable will help the model become more accurate for these scenarios. However, it is not currently clear how to formulate this value. It may be easier to make an "unexpectedMatchesWonInTourney" as this is a lot simpler although it may provide less information.
+
+Finally, another variable I am considering adding is a "clutch" which will take under pressure rankings from the ATP website for each player which measures how well this player performs under pressure (for example, during break points or set points).
 
