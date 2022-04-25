@@ -355,7 +355,7 @@ def simAllMatches(date,round):
     #allPlayer1 = ["Federico Delbonis","Andrey Rublev","Felix Auger-Aliassime","Emil Ruusuvuori","Marton Fucsovics","Casper Ruud","Taylor Fritz","David Goffin","Hubert Hurkacz","Lorenzo Sonego","Albert Ramos-Vinolas","Sebastian Korda","Hubert Hurkacz","Pablo Carreno Busta","Lorenzo Musetti","Laslo Djere","Alejandro Davidovich Fokina","Casper Ruud","Taylor Fritz","Andrey Rublev","Diego Schwartzman","Jannik Sinner","Grigor Dimitrov","Alejandro Davidovich Fokina","Stefanos Tsitsipas","Alejandro Davidovich Fokina","Alejandro Davidovich Fokina"]
     #allPlayer2 = ["Alexander Zverev","Alex de Minaur","Lorenzo Musetti","Jannik Sinner","Diego Schwartzman","Holger Rune","Marin Cilic","Daniel Evans","Pedro Martinez","Laslo Djere","Cameron Norrie","Carlos Alcaraz","Albert Ramos-Vinolas","Alexander Zverev","Diego Schwartzman","Stefanos Tsitsipas","David Goffin","Grigor Dimitrov","Sebastian Korda","Jannik Sinner","Stefanos Tsitsipas","Alexander Zverev","Hubert Hurkacz","Taylor Fritz","Alexander Zverev","Grigor Dimitrov","Stefanos Tsitsipas"]
 
-    allPlayer1 = ["Bernabe Zapata Miralles","Jaume Munar","Maxime Cressy","Hugo Grenier","Nicolas Alvarez Varona","Adrian Mannarino","Kwon Soon-woo","Lorenzo Musetti","Marcos Giron","Pablo Andujar","Hugo Dellien","Feliciano Lopez","Marton Fucsovics","Carlos Taberner","Lloyd Harris","Lorenzo Musetti","Cameron Norrie","Diego Schwartzman","Ilya Ivashka","Stefanos Tsitsipas","Federico Coria","Kwon Soon-woo","Nikoloz Basilashvili","Alex de Minaur","Carlos Taberner","Lloyd Harris","Alexander Bublik","Pablo Carreno Busta","Marton Fucsovics","Frances Tiafoe","Pablo Carreno Busta","Emil Ruusuvuori","Frances Tiafoe","Diego Schwartzman","Jaume Munar","Cameron Norrie","Alex de Minaur","Stefanos Tsitsipas"]
+    allPlayer1 = ["Bernabe Zapata Miralles","Jaume Munar","Maxime Cressy","Hugo Grenier","Nicolas Alvarez Varona","Adrian Mannarino","Soonwoo Kwon","Lorenzo Musetti","Marcos Giron","Pablo Andujar","Hugo Dellien","Feliciano Lopez","Marton Fucsovics","Carlos Taberner","Lloyd Harris","Lorenzo Musetti","Cameron Norrie","Diego Schwartzman","Ilya Ivashka","Stefanos Tsitsipas","Federico Coria","Soonwoo Kwon","Nikoloz Basilashvili","Alex de Minaur","Carlos Taberner","Lloyd Harris","Alexander Bublik","Pablo Carreno Busta","Marton Fucsovics","Frances Tiafoe","Pablo Carreno Busta","Emil Ruusuvuori","Frances Tiafoe","Diego Schwartzman","Jaume Munar","Cameron Norrie","Alex de Minaur","Stefanos Tsitsipas"]
     allPlayer2 = ["Tommy Robredo","Gian Marco Moroni","Elias Ymer","Mackenzie McDonald","Brandon Nakashima","Egor Gerasimov","Benoit Paire","Sebastian Baez","Federico Coria","Ugo Humbert","Manuel Guinard","Emil Ruusuvuori","Jordan Thompson","Sebastian Korda","Roberto Carballes Baena","Daniel Evans","Egor Gerasimov","Mackenzie McDonald","Pedro Martinez","Ilya Ivashka","Grigor Dimitrov","Carlos Alcaraz","Jaume Munar","Ugo Humbert","Felix Auger-Aliassime","Albert Ramos-Vinolas","Emil Ruusuvuori","Bernabe Zapata Miralles","Federico Delbonis","Hugo Dellien","Lorenzo Sonego","Casper Ruud","Felix Auger-Aliassime","Lorenzo Musetti","Carlos Alcaraz","Marton Fucsovics","Lloyd Harris","Grigor Dimitrov"]
     for i in range(len(allPlayer1)):
 
@@ -383,7 +383,7 @@ def simAllMatches(date,round):
     est_p2_dropped_list = df["est_p2"].to_list()
 
 
-    """
+    
     for i in range(len(est_p1_dropped_list)):
         simProb = matchSimTiebreakNTimes(est_p1_dropped_list[i]/100, est_p2_dropped_list[i]/100,1,2,3,100000)
         simProb_1_list.append(simProb)
@@ -391,10 +391,10 @@ def simAllMatches(date,round):
     
     dfList = {'Player_1' : player1_dropped_list, 'Player_2' : player2_dropped_list, 'est_p1' : est_p1_dropped_list, 'est_p2' : est_p2_dropped_list, '1_simProb' : simProb_1_list}
     df = pd.DataFrame(dfList)
-
     
     
-    """
+    
+    
     return df
     
     
