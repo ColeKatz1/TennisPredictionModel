@@ -345,7 +345,7 @@ def setSimNTimes(p1,p2,firstServer,n):
     return p1Wins/totSets
 
 #this method will simulate all matches in a day, and put the outputs from this simulation into an excel spreadsheet that will be used for future prediction
-def simAllMatches(date,round):
+def simAllMatches():
     #date = "4_10_22",
     est_p1_list = []
     est_p2_list = []
@@ -355,8 +355,15 @@ def simAllMatches(date,round):
     #allPlayer1 = ["Federico Delbonis","Andrey Rublev","Felix Auger-Aliassime","Emil Ruusuvuori","Marton Fucsovics","Casper Ruud","Taylor Fritz","David Goffin","Hubert Hurkacz","Lorenzo Sonego","Albert Ramos-Vinolas","Sebastian Korda","Hubert Hurkacz","Pablo Carreno Busta","Lorenzo Musetti","Laslo Djere","Alejandro Davidovich Fokina","Casper Ruud","Taylor Fritz","Andrey Rublev","Diego Schwartzman","Jannik Sinner","Grigor Dimitrov","Alejandro Davidovich Fokina","Stefanos Tsitsipas","Alejandro Davidovich Fokina","Alejandro Davidovich Fokina"]
     #allPlayer2 = ["Alexander Zverev","Alex de Minaur","Lorenzo Musetti","Jannik Sinner","Diego Schwartzman","Holger Rune","Marin Cilic","Daniel Evans","Pedro Martinez","Laslo Djere","Cameron Norrie","Carlos Alcaraz","Albert Ramos-Vinolas","Alexander Zverev","Diego Schwartzman","Stefanos Tsitsipas","David Goffin","Grigor Dimitrov","Sebastian Korda","Jannik Sinner","Stefanos Tsitsipas","Alexander Zverev","Hubert Hurkacz","Taylor Fritz","Alexander Zverev","Grigor Dimitrov","Stefanos Tsitsipas"]
 
-    allPlayer1 = ["Bernabe Zapata Miralles","Jaume Munar","Maxime Cressy","Hugo Grenier","Nicolas Alvarez Varona","Adrian Mannarino","Soonwoo Kwon","Lorenzo Musetti","Marcos Giron","Pablo Andujar","Hugo Dellien","Feliciano Lopez","Marton Fucsovics","Carlos Taberner","Lloyd Harris","Lorenzo Musetti","Cameron Norrie","Diego Schwartzman","Ilya Ivashka","Stefanos Tsitsipas","Federico Coria","Soonwoo Kwon","Nikoloz Basilashvili","Alex de Minaur","Carlos Taberner","Lloyd Harris","Alexander Bublik","Pablo Carreno Busta","Marton Fucsovics","Frances Tiafoe","Pablo Carreno Busta","Emil Ruusuvuori","Frances Tiafoe","Diego Schwartzman","Jaume Munar","Cameron Norrie","Alex de Minaur","Stefanos Tsitsipas"]
-    allPlayer2 = ["Tommy Robredo","Gian Marco Moroni","Elias Ymer","Mackenzie McDonald","Brandon Nakashima","Egor Gerasimov","Benoit Paire","Sebastian Baez","Federico Coria","Ugo Humbert","Manuel Guinard","Emil Ruusuvuori","Jordan Thompson","Sebastian Korda","Roberto Carballes Baena","Daniel Evans","Egor Gerasimov","Mackenzie McDonald","Pedro Martinez","Ilya Ivashka","Grigor Dimitrov","Carlos Alcaraz","Jaume Munar","Ugo Humbert","Felix Auger-Aliassime","Albert Ramos-Vinolas","Emil Ruusuvuori","Bernabe Zapata Miralles","Federico Delbonis","Hugo Dellien","Lorenzo Sonego","Casper Ruud","Felix Auger-Aliassime","Lorenzo Musetti","Carlos Alcaraz","Marton Fucsovics","Lloyd Harris","Grigor Dimitrov"]
+    #allPlayer1 = ["Bernabe Zapata Miralles","Jaume Munar","Maxime Cressy","Hugo Grenier","Nicolas Alvarez Varona","Adrian Mannarino","Soonwoo Kwon","Lorenzo Musetti","Marcos Giron","Pablo Andujar","Hugo Dellien","Feliciano Lopez","Marton Fucsovics","Carlos Taberner","Lloyd Harris","Lorenzo Musetti","Cameron Norrie","Diego Schwartzman","Ilya Ivashka","Stefanos Tsitsipas","Federico Coria","Soonwoo Kwon","Nikoloz Basilashvili","Alex de Minaur","Carlos Taberner","Lloyd Harris","Alexander Bublik","Pablo Carreno Busta","Marton Fucsovics","Frances Tiafoe","Pablo Carreno Busta","Emil Ruusuvuori","Frances Tiafoe","Diego Schwartzman","Jaume Munar","Cameron Norrie","Alex de Minaur","Stefanos Tsitsipas","Stefanos Tsitsipas","Cameron Norrie","Pablo Carreno Busta","Diego Schwartzman","Diego Schwartzman","Carlos Alcaraz","Carlos Alcaraz"]
+    #allPlayer2 = ["Tommy Robredo","Gian Marco Moroni","Elias Ymer","Mackenzie McDonald","Brandon Nakashima","Egor Gerasimov","Benoit Paire","Sebastian Baez","Federico Coria","Ugo Humbert","Manuel Guinard","Emil Ruusuvuori","Jordan Thompson","Sebastian Korda","Roberto Carballes Baena","Daniel Evans","Egor Gerasimov","Mackenzie McDonald","Pedro Martinez","Ilya Ivashka","Grigor Dimitrov","Carlos Alcaraz","Jaume Munar","Ugo Humbert","Felix Auger-Aliassime","Albert Ramos-Vinolas","Emil Ruusuvuori","Bernabe Zapata Miralles","Federico Delbonis","Hugo Dellien","Lorenzo Sonego","Casper Ruud","Felix Auger-Aliassime","Lorenzo Musetti","Carlos Alcaraz","Marton Fucsovics","Lloyd Harris","Grigor Dimitrov","Carlos Alcaraz","Alex de Minaur","Casper Ruud","Felix Auger-Aliassime","Pablo Carreno Busta","Alex de Minaur","Pablo Carreno Busta"]
+   
+    #allPlayer1 = ["Soonwoo Kwon","Pablo Andujar","Dusan Lajovic","Federico Coria","Pablo Cuevas","Lloyd Harris","Tommy Paul","Albert Ramos-Vinolas","Jiri Vesely","Joao Sousa","Benjamin Bonzi","Pierre-Hugues Herbert"]
+    #allPlayer2 = ["Benoit Paire","Nuno Borges","Frances Tiafoe","Bernabe Zapata Miralles","Roberto Carballes Baena","Carlos Taberner","Richard Gasquet","Jordan Thompson","Hugo Dellien","Sebastian Baez","Dominic Thiem","Sebastian Korda"]
+    
+    allPlayer1 = ["Alejandro Davidovich Fokina","Albert Ramos-Vinolas","Nuno Borges","Pablo Cuevas","Benjamin Bonzi","Felix Auger-Aliassime","Sebastian Baez","Richard Gasquet","Felix Auger-Aliassime","Alejandro Davidovich Fokina","Richard Gasquet","Albert Ramos-Vinolas","Sebastian Korda","Sebastian Baez","Frances Tiafoe"]
+    allPlayer2 = ["Bernabe Zapata Miralles","Soonwoo Kwon","Frances Tiafoe","Fernando Verdasco","Sebastian Korda","Carlos Taberner","Marin Cilic","Hugo Dellien","Sebastian Korda","Frances Tiafoe","Sebastian Baez","Fernando Verdasco","Frances Tiafoe","Albert Ramos-Vinolas","Sebastian Baez"]
+    
     for i in range(len(allPlayer1)):
 
         servePct = calculateServePct(allPlayer1[i],allPlayer2[i])
@@ -376,7 +383,7 @@ def simAllMatches(date,round):
     df['est_p1'] = df['est_p1'].str.get(0)
     df['est_p2'] = df['est_p2'].str.get(0)
     
-    #df = df.dropna(axis = 0)
+    df = df.dropna(axis = 0)
     player1_dropped_list = df['Player_1'].to_list()
     player2_dropped_list = df['Player_2'].to_list()
     est_p1_dropped_list = df['est_p1'].to_list()
@@ -400,11 +407,11 @@ def simAllMatches(date,round):
     
 
 
-a = simAllMatches("4_11_22","2")
+a = simAllMatches()
 
 print(a)
 
-a.to_csv('simulations3.csv')
+#a.to_csv('simulations4.csv')
 #a = calculateServePct("Andrey Rublev", "Jannik Sinner")
 #print(a)
 #print(matchSimTiebreakNTimes(a[0]/100,a[1]/100,1,2,3,100000))
