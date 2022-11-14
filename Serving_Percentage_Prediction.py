@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, Comment
 import pandas as pd
 from selenium import webdriver
 
-with open("C:/Users/colek/OneDrive/Desktop/ATP_Serve_Return_Stats/ATP_Serve_4_7_22.html") as fp: #open html file of serving data
+with open("ATP_Serve_4_7_22.html") as fp: #open html file of serving data
     soup = BeautifulSoup(fp, 'html.parser')
 
 tr = soup.findAll('tr', class_ = "stats-listing-row") #find table of stats
