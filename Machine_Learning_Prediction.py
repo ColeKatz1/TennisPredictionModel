@@ -15,12 +15,12 @@ df = pandas.read_csv("C:/Users/colek/OneDrive/Desktop/ATP_Serve_Return_Stats/Ten
 
 
 
-df['Elo_1_Combined'] = (df['elo_1'] + df['1_surface_elo'])/2
-df['Elo_2_Combined'] = (df['elo_2'] + df['2_surface_elo'])/2
+df['Elo_1_Combined'] = (df['elo_1'] + df['1_surface_elo'])/2 #this combines the player's surface elo and overall elo into one variable that averages the two
+df['Elo_2_Combined'] = (df['elo_2'] + df['2_surface_elo'])/2 #this does the same as above but for player 2
 
-df['Elo_Combined_Diff'] = df['Elo_1_Combined']  - df['Elo_2_Combined']
+df['Elo_Combined_Diff'] = df['Elo_1_Combined']  - df['Elo_2_Combined'] #this creates a new variable which is the difference between player 1 and player 2's combined elos
 
-df['Under_Pressure_Difference'] = df['1_pressure'] - df['2_pressure']
+df['Under_Pressure_Difference'] = df['1_pressure'] - df['2_pressure'] #creation of under pressure difference variable
 
 df['1_simProb'] = df['1_simProb'] - .5
 df['1_simProb'] = df['1_simProb'] * 100
@@ -31,19 +31,16 @@ y = xAndY['WinOrLoss']
 
 
 
-
-count = 0
-sum = 0
-for i in range(1000):
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.35)
-    logistic = LogisticRegression()
-    log_model = logistic.fit(x_train, y_train)
-    score = log_model.score(x_test, y_test)
-    predictions = log_model.predict(x_test)
-    actual = y_test.values.tolist()
+#this splits data into training and testing, creates a logistic regression model, makes predictions, and outputs the accuracy score
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.35)
+logistic = LogisticRegression()
+log_model = logistic.fit(x_train, y_train)
+score = log_model.score(x_test, y_test)
+predictions = log_model.predict(x_test)
+actual = y_test.values.tolist()
+print(score) 
     
-    
-
+#this creates an ROC curve and visualizes it
 fpr, tpr, thresholds = metrics.roc_curve(y_test,predictions)
 roc_auc = metrics.auc(fpr,tpr)
 display = metrics.RocCurveDisplay(fpr = fpr,tpr = tpr,roc_auc = roc_auc)
@@ -52,21 +49,6 @@ plt.show()
 
 
 
-    
-    
-
-
-
-#sum += score
-#count += 1
-#print(sum/count)
-#print(log_model.coef_)
-#PartialDependenceDisplay.from_estimator(log_model,x,[0],response_method='auto')
-#PartialDependenceDisplay.from_estimator(log_model,x,[1],response_method='auto')
-#PartialDependenceDisplay.from_estimator(log_model,x,[2],response_method='auto')
-#plt.show()
-#sum += score
-#count += 1
-#print(sum/count)
+ 
 
 
