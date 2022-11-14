@@ -385,8 +385,8 @@ def simAllMatches(allPlayer1, allPlayer2):
     
     
 
-
+#This is an example of a possible input. The first match is Delbonis vs Zverev.
 #a = simAllMatches(["Federico Delbonis","Andrey Rublev","Felix Auger-Aliassime","Emil Ruusuvuori","Marton Fucsovics","Casper Ruud","Taylor Fritz","David Goffin","Hubert Hurkacz","Lorenzo Sonego","Albert Ramos-Vinolas","Sebastian Korda","Hubert Hurkacz","Pablo Carreno Busta","Lorenzo Musetti","Laslo Djere","Alejandro Davidovich Fokina","Casper Ruud","Taylor Fritz","Andrey Rublev","Diego Schwartzman","Jannik Sinner","Grigor Dimitrov","Alejandro Davidovich Fokina","Stefanos Tsitsipas","Alejandro Davidovich Fokina","Alejandro Davidovich Fokina"],
-                 ["Alexander Zverev","Alex de Minaur","Lorenzo Musetti","Jannik Sinner","Diego Schwartzman","Holger Rune","Marin Cilic","Daniel Evans","Pedro Martinez","Laslo Djere","Cameron Norrie","Carlos Alcaraz","Albert Ramos-Vinolas","Alexander Zverev","Diego Schwartzman","Stefanos Tsitsipas","David Goffin","Grigor Dimitrov","Sebastian Korda","Jannik Sinner","Stefanos Tsitsipas","Alexander Zverev","Hubert Hurkacz","Taylor Fritz","Alexander Zverev","Grigor Dimitrov","Stefanos Tsitsipas"])
+#                ["Alexander Zverev","Alex de Minaur","Lorenzo Musetti","Jannik Sinner","Diego Schwartzman","Holger Rune","Marin Cilic","Daniel Evans","Pedro Martinez","Laslo Djere","Cameron Norrie","Carlos Alcaraz","Albert Ramos-Vinolas","Alexander Zverev","Diego Schwartzman","Stefanos Tsitsipas","David Goffin","Grigor Dimitrov","Sebastian Korda","Jannik Sinner","Stefanos Tsitsipas","Alexander Zverev","Hubert Hurkacz","Taylor Fritz","Alexander Zverev","Grigor Dimitrov","Stefanos Tsitsipas"])
 
 #print(a)
